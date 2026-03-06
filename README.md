@@ -1,6 +1,7 @@
 ## oop_counter
 
 By Ramona Lozon
+
 for Marco DeLuca
 
 The purpose of this assignment is to create a site with an operation "counter", the counter will feature 3 buttons, 1 for increasing the count by 1 incrementally, 1 for reducing the count by 1 incrementally, and 1 button for resetting the counter to its starting number. One caveat is that the number can never fall below 0.

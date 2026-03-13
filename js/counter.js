@@ -18,10 +18,14 @@ export class Counter {
         this.resetButton = document.createElement('button');
         this.resetButton.textContent = "reset";
 
+        this.stepButton = document.createElement('button');
+        this.stepButton.textContent = "Add 10";
+
         container.appendChild(this.display);
         container.appendChild(this.incrementButton);
         container.appendChild(this.decrementButton);
         container.appendChild(this.resetButton);
+        container.appendChild(this.stepButton);
 
         this.incrementButton.addEventListener("click", ()=> this.increment());
         this.decrementButton.addEventListener("click", ()=> this.decrement());
@@ -53,7 +57,6 @@ export class Counter {
 
     update() {
         this.display.textContent = `Count: ${this.count}`;
-        //classList.toggle(disabled) = this.count===0
     }
 }
 
@@ -64,7 +67,7 @@ class StepCounter extends Counter {
     constructor(selector, initialValue = 0) {
         super(selector, initialValue);
         //add step property
-        //this.step = step;
+        this.step = count(10);
 
     }
     //increment(){}

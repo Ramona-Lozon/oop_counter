@@ -18,30 +18,15 @@ export class Counter {
         this.resetButton = document.createElement('button');
         this.resetButton.textContent = "reset";
 
-        // add buttons, decrement, reset
-        // this.decrement
-        // this.reset
-
-        // set button text
-        // set new button text
-        // this.decrement...
-        // this.reset...
-
-        //append display and button into container div
         container.appendChild(this.display);
         container.appendChild(this.incrementButton);
         container.appendChild(this.decrementButton);
         container.appendChild(this.resetButton);
-        // append new buttons
-        // container.appeandchild(new buttons)
 
-        //add event listener
         this.incrementButton.addEventListener("click", ()=> this.increment());
         this.decrementButton.addEventListener("click", ()=> this.decrement());
         this.resetButton.addEventListener("click", ()=> this.reset());
-        // add new event listeners
 
-        // when this first gets mounted update the display
         this.update();
     }
 
@@ -63,9 +48,7 @@ export class Counter {
     }
 
     update() {
-        // set initial display content
         this.display.textContent = `Count: ${this.count}`;
-    
         //classList.toggle() this.count===0
     }
 }
@@ -74,7 +57,7 @@ export class Counter {
 //StepCounter is subclass
 
 class StepCounter extends Counter {
-    counstructor(selector, initialValue = 0) {
+    constructor(selector, initialValue = 0) {
         super(selector, initialValue);
         //add step property
         //this.step = step;

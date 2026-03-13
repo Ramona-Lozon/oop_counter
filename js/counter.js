@@ -33,11 +33,15 @@ export class Counter {
     // state methods
     increment() {
         this.count++;
+        this.decrementButton.disabled = false;
         this.update();
     }
 
     decrement() {
-    // if statement to prevent lower than 0
+        if (this.count===0){
+            this.decrementButton.disabled = true;
+            return
+        }
         this.count--;
         this.update();
     }
@@ -49,7 +53,7 @@ export class Counter {
 
     update() {
         this.display.textContent = `Count: ${this.count}`;
-        //classList.toggle() this.count===0
+        //classList.toggle(disabled) = this.count===0
     }
 }
 

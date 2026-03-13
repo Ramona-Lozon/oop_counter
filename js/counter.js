@@ -9,26 +9,36 @@ export class Counter {
         const container = document.querySelector(this.selector);
         
         this.display = document.createElement('div');
-        this.button = document.createElement('button');
+        this.incrementButton = document.createElement('button');
+        this.incrementButton.textContent = "increment";
+
+        this.decrementButton = document.createElement('button');
+        this.decrementButton.textContent = "decrement";
+
+        this.resetButton = document.createElement('button');
+        this.resetButton.textContent = "reset";
 
         // add buttons, decrement, reset
         // this.decrement
         // this.reset
 
         // set button text
-        this.button.textContent = "increment";
         // set new button text
         // this.decrement...
         // this.reset...
 
         //append display and button into container div
         container.appendChild(this.display);
-        container.appendChild(this.button);
+        container.appendChild(this.incrementButton);
+        container.appendChild(this.decrementButton);
+        container.appendChild(this.resetButton);
         // append new buttons
         // container.appeandchild(new buttons)
 
         //add event listener
-        this.button.addEventListener("click", ()=> this.increment());
+        this.incrementButton.addEventListener("click", ()=> this.increment());
+        this.decrementButton.addEventListener("click", ()=> this.decrement());
+        this.resetButton.addEventListener("click", ()=> this.reset());
         // add new event listeners
 
         // when this first gets mounted update the display
@@ -41,15 +51,16 @@ export class Counter {
         this.update();
     }
 
-        // decrement() {
-            // if statement to prevent lower than 0
-            // this.count--;
-            // this.update();
-        // }
+    decrement() {
+    // if statement to prevent lower than 0
+        this.count--;
+        this.update();
+    }
         
-        // reset() {
-            // this.count = 0;
-        // }
+    reset() {
+        this.count = 0;
+        this.update();
+    }
 
     update() {
         // set initial display content

@@ -1,9 +1,13 @@
+.counter-box {
+  margin-bottom: 50px;
+}
+
 .counter {
-    border: solid 1px #c5c5c5;
+    border: solid 1px green;
     margin-top: 40px;
     padding: 20px;
-    color: rgb(167, 167, 167);
-    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    color: green;
+    background-color: black;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     width: fit-content;
   }
@@ -14,8 +18,8 @@
     margin-right: 20px;
     border: none;
     padding: 10px;
-    background-color: cadetblue;
-    color: white;
+    background-color: green;
+    color: black;
     letter-spacing: 1px;
   }
 

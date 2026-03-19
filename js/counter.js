@@ -62,36 +62,11 @@ export class Counter {
 //Counter is Super Class
 //StepCounter is subclass
 
-class fiveStepCounter extends Counter {
-    constructor(selector, initialValue = 5) {
+class StepCounter extends Counter {
+    constructor(selector, initialValue = 5, step = 5) {
         super(selector, initialValue);
         //add step property
         this.step = step;
-    }
-    
-    increment(){
-        this.count = this.step;
-        this.update();
-    }
-    
-    decrement(){
-        this.count = this.step;
-        this.update();
-    }
-}
-
-class tenStepCounter extends Counter {
-    constructor(selector, initialValue = 0, step = 10) {
-        super(selector, initialValue);
-        this.step = step;
-    }
-
-    increment(){
-        this.count = this.step;
-    }
-
-    decrement(){
-        this.count = this.step;
     }
 }
 

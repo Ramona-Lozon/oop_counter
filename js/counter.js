@@ -80,10 +80,4 @@ export class StepCounter extends Counter {
         this.count -= this.step;
         this.update();
     }
-
-    update() {
-        this.display.textContent = `Count: ${this.count}`;
-        this.decrementButton.classList.toggle('disabled', this.count===0);
-        this.resetButton.classList.toggle('disabled', this.count===0);
-    }
 }

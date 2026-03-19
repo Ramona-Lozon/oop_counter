@@ -2,7 +2,7 @@
   border: solid 1px #c5c5c5;
   margin-top: 40px;
   padding: 20px;
-  color: whitesmoke;
+  color: rgb(167, 167, 167);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   width: fit-content;
@@ -15,7 +15,7 @@ button {
   border: none;
   padding: 10px;
   background-color: cadetblue;
-  color: #fff;
+  color: white;
   letter-spacing: 1px;
 }
 
@@ -52,19 +52,24 @@ h2 {
   margin-top: 10px;
   margin-bottom: 10px;
   text-decoration: underline;
-  color: whitesmoke;
+  color: rgb(167, 167, 167);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h3 {
   margin-top: 10px;
-  color: whitesmoke;
+  color: rgb(167, 167, 167);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 p {
   margin-bottom: 20px;
-  color: whitesmoke;
+  color: rgb(167, 167, 167);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 pre {
   color: green;
+  font-family: "Courier New", courier, Arial, sans-serif;
+  background-color: black;
 }

@@ -14,7 +14,7 @@
 <main class="flex-center">
     <section>
 
-        <article class="flex-center text-center">
+        <article class="flex-center">
             <div>
                 <h2>
                     Increment Counter using Vue
@@ -45,13 +45,41 @@
 
             <div>
                 <h3>
-                    Mounting the methods
+                    The Counter Class
                 </h3>
             </div>
 
             <div>
                 <p>
-                    The counters are coded using the Vue.js framework, they are injected using Vue and defined within the counter class in "js/modules/counter.js". The counter class is imported into "js/main.js" where it is associated to an HTML element with the id of "counter-container#", from there the class "Mounts" several elements made within counter.js to the index page. the Mount method defined the counter itself, the initial state of the counter, and defines the buttons within the counter's container. 
+                    the class is initially defined using a "constructor" sets up a given class' properties, and defines the structure of the syntax of the class. for example;
+                    <br><br>
+                    js/modules/counter.js<br>
+                    export class Counter {
+                    constructor(value, value){}<br>
+                    }<br>
+                    <br>
+                    this will be at the top of most classes, and will define how the class will connect to the front end.<br><br>
+                    for this class our constructor will looks like this;<br><br>
+                    constructor(selector, initialValue = 0){}<br>
+                    <br>
+                    the "selector" is where we will put that value that connects it to an object in the HTML, which is most often a HTML element's ID.<br>
+                    <br>
+                    "initialValue = 0" is defining that the next value within the string will define the initial value of whatever the class contains, and its default is equal to 0.<br>
+                    <br>
+                    the line above the constructor is an export function, as this class will be exported. within "js/main.js" the class will be imported like so;<br>
+                    <br>
+                    import { Counter } from './counter.js';<br>
+                    <br>
+                    after theclass has been imported, we can create an instance that will define how the class will be used;<br><br>
+                    const counter1 = new counter('#objectId', 1);<br>
+                    <br>
+                    in this line, "const" creates a new instance,<br>"counter1" gives that instance a name,<br>
+                    "new counter" creates a new instance of the counter class, and takes the place of the "constructor",<br> the text in brackets afterwards is equal to the values entered into the constructor, like so;<br>
+                    <br>
+                    constructor(selector, initialValue=0){}<br>
+                    new counter('#objectId', 1)<br>
+                    <br>
+                    the two strings match each other, selector is how the class is added to an object, in this case the object would have an ID of "#objectID" and the second value in the new counter instance would override the "initialValue" setting it to 1. 
                 </p>
             </div>
 
@@ -63,7 +91,11 @@
 
             <div>
                 <p>
-                    The way the counters increment, decrement and reset are defined within the methods that follow the initial mounting of the counter class.
+                    The way the first counter increments, decrements and resets are defined within the methods that follow the initial mounting of the counter class. 
+                    <br><br>
+                    Incrementing is done by using an incrememnt method that contains "this.count++;" within this line of code, "this" refers to the instance of the class being used, "count" is a special property that stores the current vlaue of the counter.
+                    <br><br>
+                    the initial value of the counter is handled at the very top of the class by the "constructor" this method defines the initial value of the counter  
                 </p>
             </div>
         </article>

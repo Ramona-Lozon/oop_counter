@@ -57,12 +57,6 @@ export class Counter {
         this.decrementButton.classList.toggle('disabled', this.count===0);
         this.resetButton.classList.toggle('disabled', this.count===0);
     }
-
-    colorChange() {
-        if (this.count < 1) {
-
-        }
-    }
 }
 
 //Counter is Super Class

@@ -34,12 +34,16 @@ export class Counter {
     increment() {
         this.count++;
         this.decrementButton.disabled = false;
+        this.decrementButton.classList.remove('disabled');
+        this.resetButton.classList.remove('disabled');
         this.update();
     }
 
     decrement() {
         if (this.count===0){
             this.decrementButton.disabled = true;
+            this.decrementButton.classList.add('disabled');
+            this.resetButton.classList.add('disabled');
             return
         }
         this.count--;

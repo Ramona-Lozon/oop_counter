@@ -18,6 +18,10 @@ button {
   letter-spacing: 1px;
 }
 
+.disabled {
+  background-color: gray;
+}
+
 main {
   min-height: 100vh;
   display: flex;

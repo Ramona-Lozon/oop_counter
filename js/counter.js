@@ -30,7 +30,6 @@ export class Counter {
         this.update();
     }
 
-    // state methods
     increment() {
         this.count++;
         this.decrementButton.disabled = false;

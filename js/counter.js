@@ -41,7 +41,7 @@ export class Counter {
         if (this.count==0){
             this.decrementButton.disabled = true;
 
-            return
+            return;
         }
         this.count--;
         this.update();
@@ -67,18 +67,24 @@ export class StepCounter extends Counter {
 
     increment() {
         this.count +=this.step;
-        this.decrementButton.disabled = true;
+        this.decrementButton.disabled = false;
         this.update();
     }
 
     decrement() {
-        if (this.count - this.step < 0){
+        if (this.count===0){
             this.decrementButton.disabled = true;
 
-            return
+            return;
         }
         this.count -= this.step;
         this.update();
+    }
+
+    update() {
+        this.display.textContent = `Count: ${this.count}`;
+        this.decrementButton.classList.toggle('disabled', this.count===0);
+        this.resetButton.classList.toggle('disabled', this.count===0);
     }
 }
 

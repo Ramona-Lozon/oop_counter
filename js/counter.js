@@ -1,6 +1,7 @@
 export class Counter {
     constructor(selector, initialValue=0) {
         this.count = initialValue;
+        this.initialValue = initialValue;
         this.selector = selector;
         this.mount();
     }
@@ -47,7 +48,7 @@ export class Counter {
     }
         
     reset() {
-        this.count = 0;
+        this.count = this.initialValue;
         this.update();
     }
 
@@ -78,11 +79,5 @@ export class StepCounter extends Counter {
         }
         this.count -= this.step;
         this.update();
-    }
-
-    update() {
-        this.display.textContent = `Count: ${this.count}`;
-        this.decrementButton.classList.toggle('disabled', this.count===0);
-        this.resetButton.classList.toggle('disabled', this.count===0);
     }
 }

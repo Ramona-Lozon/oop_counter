@@ -14,29 +14,39 @@
 <main class="flex-center">
     <section>
 
-        <article class="flex-center">
-            <div>
-                <h2>
-                    Increment Counter using Vue
-                </h2>
-            </div>
+    <div class="flex-center">
+        <h2>
+            Increment Counter using Vue
+        </h2>
+    </div>
+    
+    <div>
+        <h2>
+            How it Works
+        </h2>
+    </div>
+
+    <div>
+        <p>
+            the three counters below will increment upwards and downwards when the associated button is clicked, all three will increment a different amount. when a counter reaches 0, it will no longer decrement and the reset and decrement buttons will be disabled.
+        </p>
+    </div>
 
             <div>
-                <p>This website is a demonstration of basic Vue.js principles, demonstrated through the use of increment counters</p>
+                <hr>
             </div>
+
+    <div class="counter-box flex-center">
+        <div id="counter-container1" class="counter col-span-full m-col-span-6"></div>
+        <div id="counter-container2" class="counter col-span-full m-col-span-6"></div>
+        <div id="counter-container3" class="counter col-span-full m-col-span-6"></div>
+    </div>
 
             <div>
-                <h2>
-                    The Way the Counter works
-                </h2>
+                <hr>
             </div>
 
-            <div>
-                <p>
-                    the three counters below will increment upwards and downwards when the associated button is clicked, all three will increment a different amount. when a counter reaches 0, it will no longer decrement and the reset and decrement buttons will be disabled.
-                </p>
-            </div>
-
+        <article class="flex-center text-left">
             <div>
                 <h2>
                     The Code Behind it
@@ -50,6 +60,18 @@
             </div>
 
             <div>
+                <pre>
+export class Counter {
+    constructor(selector, initialValue=0) {
+        this.count = initialValue;
+        this.initialValue = initialValue;
+        this.selector = selector;
+        this.mount();
+    }
+}
+                </pre>
+            </div>
+            <div>
                 <p>
                     the class is initially defined using a "constructor" sets up a given class' properties, and defines the structure of the syntax of the class. for example;
                     <br><br>
@@ -62,7 +84,7 @@
                     for this class our constructor will looks like this;<br><br>
                     constructor(selector, initialValue = 0){}<br>
                     <br>
-                    the "selector" is where we will put that value that connects it to an object in the HTML, which is most often a HTML element's ID.<br>
+                    the "selector" is where we will put that value that connects it to an object in the HTML and stores it. this is most often a HTML element's ID.<br>
                     <br>
                     "initialValue = 0" is defining that the next value within the string will define the initial value of whatever the class contains, and its default is equal to 0.<br>
                     <br>
@@ -79,46 +101,245 @@
                     constructor(selector, initialValue=0){}<br>
                     new counter('#objectId', 1)<br>
                     <br>
-                    the two strings match each other, selector is how the class is added to an object, in this case the object would have an ID of "#objectID" and the second value in the new counter instance would override the "initialValue" setting it to 1. 
+                    the two strings match each other, selector stores the HTML object's ID, in this case the object would have an ID of "#objectID" and the second value in the new counter instance would override the "initialValue" setting it to 1. 
+                    <br><br>
+                    the properties within the constructor method define each value for each instance of the counter class. "this.count;" will always have a default equal to the initial value. "this.initialValue = initialValue;" tell the DOM that the initial value of each instance of the counter is defined by that instance within main.js. "this.selector;" will always be defined as the selector. "this.mount();" means that each instance of the class will run the mount method. 
                 </p>
+            </div>
+
+            <div>
+                <hr>
             </div>
 
             <div>
                 <h3>
-                    How the counters increment
+                    The Mount Method 
                 </h3>
             </div>
 
             <div>
+<pre>
+mount() {
+    const container = document.querySelector(this.selector);
+}
+</pre>
+            </div>
+
+            <div>
+                <p>
+                    the mount method takes the stored selector value and finds where it is in the HTML document, and adds the counter and buttons to that selected element.
+                    <br><br>
+                    after it finds the selected container, it begins building the increment counter. using the "this" value which defines the specific instance of the class, it appends several properties that create the different elements. the mount method creats a div, several buttons, and appends them to the HTML document through the DOM. after adding them to the DOM, several event listeners wait for those buttons to be clicked before running methods associated with those buttons. the buttons are as follows;<br>
+                    <br>
+                    Increment<br>
+                    Decrement<br>
+                    Reset<br>
+                    <br>
+                    each button does exactly what their names describe by calling upon associated methods. 
+                </p>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <div>
+                <h3>
+                    The Increment Method
+                </h3>
+            </div>
+<div>
+<pre>
+increment() {
+    this.count++;
+    this.decrementButton.disabled = false;
+    this.update();
+}
+</pre>
+</div>
+            <div>
                 <p>
                     The way the first counter increments, decrements and resets are defined within the methods that follow the initial mounting of the counter class. 
                     <br><br>
-                    Incrementing is done by using an incrememnt method that contains "this.count++;" within this line of code, "this" refers to the instance of the class being used, "count" is a special property that stores the current vlaue of the counter.
+                    Incrementing is done by using an incrememnt method that contains "this.count++;" within this line of code, "this" refers to the instance of the class being used, "count" is a special property that stores the current vlaue of the counter. the two plus signs following the count method changes its function, making it increase the count by 1 every time the increment method runs.
                     <br><br>
-                    the initial value of the counter is handled at the very top of the class by the "constructor" this method defines the initial value of the counter. <br><br>
-                    the full function would look like this;<br>
-                    <br>
-                    export class Counter {
-                        constructor(selector, initialValue=0) {<br>
-                            this.count = initialValue;<br>
-                            this.selector = selector;<br>
-                            this.mount();<br>
-                        }<br>
-                    }<br>
-                    <br>
-                    
+                    the second line of the increment method  activates the decrement button. this is done because we do not want the counter to go below zero, and further methods will deactivate the decrement button when the counter hits zero.
+                    <br><br>
+                    the last line within this method "this.update();" calls upon an additional method that updates the current state of the counter, and will be described below.
                 </p>
             </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <div>
+                <h3>
+                    The Decrement Method
+                </h3>
+            </div>
+
+            <div>
+                <pre>
+decrement() {
+    if (this.count==0){
+        this.decrementButton.disabled = true;
+
+        return;
+    }
+    this.count--;
+    this.update();
+}
+                </pre>
+            </div>
+
+            <div>
+                <p>
+                    the decrement method is similar to the increment method, but has more functionality. it begins with an "if" statement that state that if the counter equals 0, disable the decrement button, like so;<br>
+                    <br>
+                    if (this.count==0){<br>
+                    this.decrementButton.disabled = true;<br>
+                    return;}<br>
+                    <br>
+                    the return value exits the method entiry upon determining that the count is at 0. if the count is not equal to 0, this section of the decrement section is ignored, and the rest of the method runs. "this.count--;" decreases the count by 1, and "this.update();" then runs the update method.
+                </p>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <div>
+                <h3>
+                    The Reset Method
+                </h3>
+            </div>
+
+            <div>
+<pre>
+reset() {
+    this.count = this.initialValue;
+    this.update();
+}
+</pre>
+            </div>
+
+            <div>
+                <p>
+                    the reset method is very simple, its first line "this.initialValue = initialValue" seems confusing but what this line is saying is that the initial value of each instance of the class is defined by the initial vlaue of that instance, and remember we are defining the initial value of each instance in main.js. the final line of the reset method; "this.update();" calls upon the update method to run.
+                </p>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <div>
+                <h3>
+                    The Update Method
+                </h3>
+            </div>
+
+            <div>
+<pre>
+update() {
+    this.display.textContent = `Count: ${this.count}`;
+    this.decrementButton.classList.toggle('disabled', this.count===0);
+    this.resetButton.classList.toggle('disabled', this.count===0);
+}
+</pre>
+            </div>
+
+            <div>
+                <p>
+                    the update method's purpose is to update the count following any of the other methods, its what changes the number on the screen. every method redfines the "count" of each instance of the Counter class using "this.count" and the first line of this method changes the display's text content to a different number using a template literal. the two following lines toggle the "disabled" class on the reset button and the decrement button when the count hits zero, all that class does is turn the background of each button grey, which signals to the user that they are not currently active. 
+                </p>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <div>
+                <h3>
+                    The StepCounter Subclass
+                </h3>
+            </div>
+
+            <div>
+<pre>
+export class StepCounter extends Counter {
+    constructor(selector, initialValue = 0, step) {
+        super(selector, initialValue);
+        this.step = step;
+    }
+}
+</pre>
+            </div>
+
+            <div>
+                <p>
+                    A subclass is a variant of a class, the reason why we are making a subclass instead of a new class is that all methods of a subclass are the same as it's parent class, unless redefined. so it essentially copies the Counter Class' functions and allows us to make tweaks and changes to them in order to suit our needs. this is done on the first line of this subclass, where "export class Stepcounter extends Counter" this line exports the subclass so it may be imported later and the "extends" syntax marks it as a child of the Counter class. from here we can start refining the class.<br>
+                    <br>
+                    the constructor on this class adds another value to the defining string, a "step" value which will be defined later. "super" is a property that tells the new constructor to inherit the values of its parent's constructor, note that earlier it was explained that the methods are carried over, but the values are not unless a super is used. in the brackets following the super we define what values we are choosing to carry over.<br>
+                    <br>
+                    the final line of this begins to define "step" and says that the value of every instance of "step" within the Subclass is equal to the definition of step that is defined in Main.js, displayed below, the first value after the id selector is the 
+                    "initialValue", and the second value is the "step" value. we will work to define what the "step" is by redefining methods.
+                </p>
+            </div>
+
+            <div>
+<pre>
+import { Counter, StepCounter } from './counter.js';
+
+const counter1 = new Counter('#counter-container1');
+const counter2 = new StepCounter('#counter-container2', 5, 5);
+const counter3 = new StepCounter('#counter-container3', 10, 10);
+</pre>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <div>
+                <h3>
+                    The Redefined Methods
+                </h3>
+            </div>
+
+            <div>
+<pre>
+increment() {
+    this.count +=this.step;
+    this.decrementButton.disabled = false;
+    this.update();
+}
+
+decrement() {
+    if (this.count===0){
+        this.decrementButton.disabled = true;
+
+        return;
+    }
+    this.count -= this.step;
+    this.update();
+}
+</pre>
+            </div>
+
+            <div>
+                <p>
+                    within the subclass we will redefine increment and decrement whilst leaving the reset and update methods the same. we leave reset and update the same because they need not change, reset changes the count to the initial value which we are defining in main.js, and update handles updating the count with the new value defined by increment and decrement, so it also does no need to change as the increment and decrement methods define how much the counter is changing by.<br>
+                    <br>
+                      
+                </p>
+            </div>
+
         </article>
 
 
     </section>
-
-    <div class="counter-box">
-        <div id="counter-container1" class="counter col-span-full m-col-span-6"></div>
-        <div id="counter-container2" class="counter col-span-full m-col-span-6"></div>
-        <div id="counter-container3" class="counter col-span-full m-col-span-6"></div>
-    </div>
 </main>
 </body>
 </html>

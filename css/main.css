@@ -1,9 +1,13 @@
+.counter-box {
+  margin-bottom: 50px;
+}
+
 .counter {
-  border: solid 1px #c5c5c5;
+  border: solid 1px green;
   margin-top: 40px;
   padding: 20px;
-  color: rgb(167, 167, 167);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  color: green;
+  background-color: black;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   width: fit-content;
 }
@@ -14,8 +18,8 @@ button {
   margin-right: 20px;
   border: none;
   padding: 10px;
-  background-color: cadetblue;
-  color: white;
+  background-color: green;
+  color: black;
   letter-spacing: 1px;
 }
 
@@ -42,28 +46,26 @@ main {
 section {
   width: 80vw;
   background-color: rgb(32, 32, 32);
-  padding: 10px;
 }
 section div {
   width: 100%;
 }
 
 h2 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
   text-decoration: underline;
   color: rgb(167, 167, 167);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 h3 {
-  margin-top: 10px;
+  margin: 10px;
   color: rgb(167, 167, 167);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 p {
-  margin-bottom: 20px;
+  margin: 10px;
   color: rgb(167, 167, 167);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -72,4 +74,27 @@ pre {
   color: green;
   font-family: "Courier New", courier, Arial, sans-serif;
   background-color: black;
+  margin: 10px;
+}
+
+footer {
+  height: 150px;
+  margin: 50px 0px 0px 0px;
+  display: flex;
+  padding: 0px;
+  background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0));
+  flex-direction: row;
+  width: 100%;
+}
+
+a {
+  margin: 10px;
+  border: none;
+  padding: 15px;
+  background-color: black;
+  text-decoration: none;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: green;
+  border: solid 1px green;
 }

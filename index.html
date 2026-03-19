@@ -14,7 +14,7 @@
 <main class="flex-center">
     <section>
 
-    <div class="flex-center">
+    <div class="flex-center" id="top">
         <h2>
             Increment Counter using Vue
         </h2>
@@ -61,45 +61,56 @@
 
             <div>
                 <pre>
-export class Counter {
-    constructor(selector, initialValue=0) {
-        this.count = initialValue;
-        this.initialValue = initialValue;
-        this.selector = selector;
-        this.mount();
+
+    export class Counter {
+        constructor(selector, initialValue=0) {
+            this.count = initialValue;
+            this.initialValue = initialValue;
+            this.selector = selector;
+            this.mount();
+        }
     }
-}
                 </pre>
             </div>
             <div>
                 <p>
-                    the class is initially defined using a "constructor" sets up a given class' properties, and defines the structure of the syntax of the class. for example;
-                    <br><br>
-                    js/modules/counter.js<br>
-                    export class Counter {
-                    constructor(value, value){}<br>
-                    }<br>
-                    <br>
-                    this will be at the top of most classes, and will define how the class will connect to the front end.<br><br>
-                    for this class our constructor will looks like this;<br><br>
-                    constructor(selector, initialValue = 0){}<br>
-                    <br>
+                    the class is initially defined using a "constructor" sets up a given class' properties, and defines the structure of the syntax of the class. The Constructor will be at the top of the class, and will define how the class will connect to the front end.<br><br>
                     the "selector" is where we will put that value that connects it to an object in the HTML and stores it. this is most often a HTML element's ID.<br>
                     <br>
-                    "initialValue = 0" is defining that the next value within the string will define the initial value of whatever the class contains, and its default is equal to 0.<br>
+                    "initialValue = 0" is defining that the next value within the string will define the initial value of whatever the class instance contains, and its default is equal to 0.<br>
                     <br>
                     the line above the constructor is an export function, as this class will be exported. within "js/main.js" the class will be imported like so;<br>
-                    <br>
-                    import { Counter } from './counter.js';<br>
-                    <br>
-                    after theclass has been imported, we can create an instance that will define how the class will be used;<br><br>
-                    const counter1 = new counter('#objectId', 1);<br>
-                    <br>
-                    in this line, "const" creates a new instance,<br>"counter1" gives that instance a name,<br>
-                    "new counter" creates a new instance of the counter class, and takes the place of the "constructor",<br> the text in brackets afterwards is equal to the values entered into the constructor, like so;<br>
-                    <br>
-                    constructor(selector, initialValue=0){}<br>
-                    new counter('#objectId', 1)<br>
+                </p>
+                
+                <div>
+                    <pre>
+
+    import { Counter } from './counter.js';
+                    </pre>
+                </div>
+                
+                <p>
+                    after theclass has been imported, we can create an instance that will define how the class will be used;
+                </p>
+
+                <div>
+                    <pre>               
+    const counter1 = new counter('#objectId', 1);
+                    </pre>
+                </div>
+                
+                <p>
+                    in this line, "const" creates a new instance, "counter1" gives that instance a name, "new counter" creates a new instance of the counter class, and takes the place of the "constructor", the text in brackets afterwards is equal to the values entered into the constructor, like so;
+                </p>
+                
+                <div>
+                    <pre>  
+    constructor(selector, initialValue=0){}
+    new counter('#objectId', 1)
+                    </pre>
+                </div>
+                
+                <p>
                     <br>
                     the two strings match each other, selector stores the HTML object's ID, in this case the object would have an ID of "#objectID" and the second value in the new counter instance would override the "initialValue" setting it to 1. 
                     <br><br>
@@ -119,9 +130,11 @@ export class Counter {
 
             <div>
 <pre>
-mount() {
-    const container = document.querySelector(this.selector);
-}
+
+    mount() {
+        const container = document.querySelector(this.selector);
+    }
+
 </pre>
             </div>
 
@@ -150,11 +163,13 @@ mount() {
             </div>
 <div>
 <pre>
-increment() {
-    this.count++;
-    this.decrementButton.disabled = false;
-    this.update();
-}
+
+    increment() {
+        this.count++;
+        this.decrementButton.disabled = false;
+        this.update();
+    }
+
 </pre>
 </div>
             <div>
@@ -181,15 +196,17 @@ increment() {
 
             <div>
                 <pre>
-decrement() {
-    if (this.count==0){
-        this.decrementButton.disabled = true;
 
-        return;
+    decrement() {
+        if (this.count==0){
+            this.decrementButton.disabled = true;
+
+            return;
+        }
+        this.count--;
+        this.update();
     }
-    this.count--;
-    this.update();
-}
+
                 </pre>
             </div>
 
@@ -217,10 +234,12 @@ decrement() {
 
             <div>
 <pre>
-reset() {
-    this.count = this.initialValue;
-    this.update();
-}
+
+    reset() {
+        this.count = this.initialValue;
+        this.update();
+    }
+
 </pre>
             </div>
 
@@ -242,11 +261,13 @@ reset() {
 
             <div>
 <pre>
-update() {
-    this.display.textContent = `Count: ${this.count}`;
-    this.decrementButton.classList.toggle('disabled', this.count===0);
-    this.resetButton.classList.toggle('disabled', this.count===0);
-}
+
+    update() {
+        this.display.textContent = `Count: ${this.count}`;
+        this.decrementButton.classList.toggle('disabled', this.count===0);
+        this.resetButton.classList.toggle('disabled', this.count===0);
+    }
+
 </pre>
             </div>
 
@@ -268,12 +289,14 @@ update() {
 
             <div>
 <pre>
-export class StepCounter extends Counter {
-    constructor(selector, initialValue = 0, step) {
-        super(selector, initialValue);
-        this.step = step;
+
+    export class StepCounter extends Counter {
+        constructor(selector, initialValue = 0, step) {
+            super(selector, initialValue);
+            this.step = step;
+        }
     }
-}
+
 </pre>
             </div>
 
@@ -290,11 +313,13 @@ export class StepCounter extends Counter {
 
             <div>
 <pre>
-import { Counter, StepCounter } from './counter.js';
 
-const counter1 = new Counter('#counter-container1');
-const counter2 = new StepCounter('#counter-container2', 5, 5);
-const counter3 = new StepCounter('#counter-container3', 10, 10);
+    import { Counter, StepCounter } from './counter.js';
+
+    const counter1 = new Counter('#counter-container1');
+    const counter2 = new StepCounter('#counter-container2', 5, 5);
+    const counter3 = new StepCounter('#counter-container3', 10, 10);
+
 </pre>
             </div>
 
@@ -310,21 +335,23 @@ const counter3 = new StepCounter('#counter-container3', 10, 10);
 
             <div>
 <pre>
-increment() {
-    this.count +=this.step;
-    this.decrementButton.disabled = false;
-    this.update();
-}
 
-decrement() {
-    if (this.count===0){
-        this.decrementButton.disabled = true;
-
-        return;
+    increment() {
+        this.count +=this.step;
+        this.decrementButton.disabled = false;
+        this.update();
     }
-    this.count -= this.step;
-    this.update();
-}
+
+    decrement() {
+        if (this.count===0){
+            this.decrementButton.disabled = true;
+
+            return;
+        }
+        this.count -= this.step;
+        this.update();
+    }
+
 </pre>
             </div>
 
@@ -332,14 +359,19 @@ decrement() {
                 <p>
                     within the subclass we will redefine increment and decrement whilst leaving the reset and update methods the same. we leave reset and update the same because they need not change, reset changes the count to the initial value which we are defining in main.js, and update handles updating the count with the new value defined by increment and decrement, so it also does no need to change as the increment and decrement methods define how much the counter is changing by.<br>
                     <br>
-                      
+                    you will also notice that the increment and decrement methods are very similar to what they were initially, instead of making them increase by 1 by using "++" or "--" we are changing it by an amount defined in main.js, which was decided in the StepCounter's constructor. all these functions do it say, change the amount to this subclass' instance by an amount given by the constructor, nothing else is changed.  
                 </p>
             </div>
 
         </article>
-
-
     </section>
+<section>
+    <footer>
+        <div>
+            <a class="button" href="#top">Top</a>
+        </div>
+    </footer>
+</section>
 </main>
 </body>
 </html>

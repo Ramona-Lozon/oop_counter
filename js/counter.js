@@ -38,8 +38,9 @@ export class Counter {
     }
 
     decrement() {
-        if (this.count===0){
+        if (this.count==0){
             this.decrementButton.disabled = true;
+
             return
         }
         this.count--;
@@ -53,22 +54,43 @@ export class Counter {
 
     update() {
         this.display.textContent = `Count: ${this.count}`;
-        //classList.toggle(disabled) = this.count===0
+        this.decrementButton.classList.toggle('disabled', this.count===0);
+        this.resetButton.classList.toggle('disabled', this.count===0);
     }
 }
 
 //Counter is Super Class
 //StepCounter is subclass
 
-class StepCounter extends Counter {
-    constructor(selector, initialValue = 0) {
+class fiveStepCounter extends Counter {
+    constructor(selector, initialValue = 0, step = 5) {
         super(selector, initialValue);
         //add step property
-        //this.step = step;
-
+        this.step = step;
     }
-    //increment(){}
-    //decrement(){}
+    
+    increment(){
+        this.count = this.step;
+    }
+    
+    decrement(){
+        this.count = this.step;
+    }
+}
+
+class tenStepCounter extends Counter {
+    constructor(selector, initialValue = 0, step = 10) {
+        super(selector, initialValue);
+        this.step = step;
+    }
+
+    increment(){
+        this.count = this.step;
+    }
+
+    decrement(){
+        this.count = this.step;
+    }
 }
 
 //homework for this stuff

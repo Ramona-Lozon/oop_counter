@@ -10,12 +10,72 @@
     <link href="css/main.css" rel="stylesheet">
     <script type="module" defer src="js/main.js"></script>
 </head>
-
 <body>
-    <div class="grid-con">
+<main class="flex-center">
+    <section>
+
+        <article class="flex-center text-center">
+            <div>
+                <h2>
+                    Increment Counter using Vue
+                </h2>
+            </div>
+
+            <div>
+                <p>This website is a demonstration of basic Vue.js principles, demonstrated through the use of increment counters</p>
+            </div>
+
+            <div>
+                <h2>
+                    The Way the Counter works
+                </h2>
+            </div>
+
+            <div>
+                <p>
+                    the three counters below will increment upwards and downwards when the associated button is clicked, all three will increment a different amount. when a counter reaches 0, it will no longer decrement and the reset and decrement buttons will be disabled.
+                </p>
+            </div>
+
+            <div>
+                <h2>
+                    The Code Behind it
+                </h2>
+            </div>
+
+            <div>
+                <h3>
+                    Mounting the methods
+                </h3>
+            </div>
+
+            <div>
+                <p>
+                    The counters are coded using the Vue.js framework, they are injected using Vue and defined within the counter class in "js/modules/counter.js". The counter class is imported into "js/main.js" where it is associated to an HTML element with the id of "counter-container#", from there the class "Mounts" several elements made within counter.js to the index page. the Mount method defined the counter itself, the initial state of the counter, and defines the buttons within the counter's container. 
+                </p>
+            </div>
+
+            <div>
+                <h3>
+                    How the counters increment
+                </h3>
+            </div>
+
+            <div>
+                <p>
+                    The way the counters increment, decrement and reset are defined within the methods that follow the initial mounting of the counter class.
+                </p>
+            </div>
+        </article>
+
+
+    </section>
+
+    <div class="counter-box">
         <div id="counter-container1" class="counter col-span-full m-col-span-6"></div>
         <div id="counter-container2" class="counter col-span-full m-col-span-6"></div>
         <div id="counter-container3" class="counter col-span-full m-col-span-6"></div>
     </div>
+</main>
 </body>
 </html>

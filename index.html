@@ -95,7 +95,18 @@
                     <br><br>
                     Incrementing is done by using an incrememnt method that contains "this.count++;" within this line of code, "this" refers to the instance of the class being used, "count" is a special property that stores the current vlaue of the counter.
                     <br><br>
-                    the initial value of the counter is handled at the very top of the class by the "constructor" this method defines the initial value of the counter  
+                    the initial value of the counter is handled at the very top of the class by the "constructor" this method defines the initial value of the counter. <br><br>
+                    the full function would look like this;<br>
+                    <br>
+                    export class Counter {
+                        constructor(selector, initialValue=0) {<br>
+                            this.count = initialValue;<br>
+                            this.selector = selector;<br>
+                            this.mount();<br>
+                        }<br>
+                    }<br>
+                    <br>
+                    
                 </p>
             </div>
         </article>

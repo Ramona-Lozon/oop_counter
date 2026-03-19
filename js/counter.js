@@ -59,13 +59,9 @@ export class Counter {
     }
 }
 
-//Counter is Super Class
-//StepCounter is subclass
-
-class StepCounter extends Counter {
+export class StepCounter extends Counter {
     constructor(selector, initialValue = 0, step) {
         super(selector, initialValue);
-        //add step property
         this.step = step;
     }
 
@@ -76,7 +72,7 @@ class StepCounter extends Counter {
     }
 
     decrement() {
-        if (this.count==0){
+        if (this.count - this.step < 0){
             this.decrementButton.disabled = true;
 
             return
